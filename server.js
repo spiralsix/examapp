@@ -1,4 +1,3 @@
-var session = require('express-session');
 
 // require express and path
 var express = require("express");

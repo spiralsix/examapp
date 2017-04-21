@@ -2,6 +2,8 @@
 var mongoose = require('mongoose');
 var UserController = require('../../server/controllers/UserController.js');
 var dBTest = mongoose.model('DBTest');
+var path = require("path"); 
+
 module.exports = function(app) {
   
   //TEST ROUTE

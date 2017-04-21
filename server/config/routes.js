@@ -24,6 +24,6 @@ module.exports = function(app) {
  
 //  Default to angular
   app.get('*', function (req, res) {
-         res.sendFile(path.resolve('public/widget-app/dist/index.html'));
+         res.sendFile(path.resolve('client/application/dist/index.html'));
  })
 }

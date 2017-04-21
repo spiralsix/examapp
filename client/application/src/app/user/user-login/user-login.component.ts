@@ -11,6 +11,9 @@ import { CookieService } from 'angular2-cookie/services';
 export class UserLoginComponent implements OnInit {
   @Output() loginEvent = new EventEmitter();
   @Input() userEmail:String;
+  errorMessage:string = "err";
+  
+  
   constructor(private _cookieService:CookieService, private _userService:UserService) { }
 
   ngOnInit() {
@@ -25,14 +28,30 @@ export class UserLoginComponent implements OnInit {
   }
 
   submitHandler(email:string) {
+    this.errorMessage = "";
     console.log("email",email);
+
     this._userService.lookUpUserByEmail(email)
       .then((response) => {
         if(response) {
-          console.log("email",response["user"]["email"]);
-          this.userEmail = response["user"]["email"];
-          console.log(this.userEmail,this.userEmail,this.userEmail);
-          this.loginEvent.emit({email:this.userEmail})
+          //console.log("email",response["user"]["email"]);
+          if(response["user"]) {
+            this.userEmail = response["user"]["email"];
+            if(response["user"]) {
+              this.loginEvent.emit({email:this.userEmail})
+              console.log("log in sucess");
+            }
+            else {
+              this.errorMessage = "user obj returned from login doesn't have an email.  is this possible?";
+            }
+          }
+          else {
+            console.log("user not found, response is: "+response)
+             this.errorMessage = "email not found";
+          }
+        }
+        else {
+          console.log("reponse was null? "+response)
         }
         
         //console.log("RETURN FROM lookupuerbyemail: ", response);

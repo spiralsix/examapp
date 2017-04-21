@@ -3,6 +3,9 @@
   <form (submit)="submitHandler(email)">
     <input type="text" name="email" [(ngModel)]="email" placeholder="email address" />
     <input type="submit" value="Login"/>
+    <div id="errorDisplay" *ngIf="errorMessage">
+      {{errorMessage}}
+    </div>
 
   </form>
 </div>

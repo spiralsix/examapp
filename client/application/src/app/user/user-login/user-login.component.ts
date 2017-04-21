@@ -11,7 +11,7 @@ import { CookieService } from 'angular2-cookie/services';
 export class UserLoginComponent implements OnInit {
   @Output() loginEvent = new EventEmitter();
   @Input() userEmail:String;
-  errorMessage:string = "err";
+  errorMessage:string = "";
   
   
   constructor(private _cookieService:CookieService, private _userService:UserService) { }

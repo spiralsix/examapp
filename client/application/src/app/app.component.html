@@ -1,0 +1,4 @@
+<h5>Application</h5>
+userEmail: {{userEmail}}
+<app-user-login *ngIf="!userEmail" [userEmail]="userEmail" (loginEvent)="loginHandler($event)"></app-user-login>
+<app-user *ngIf="userEmail"></app-user>

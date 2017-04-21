@@ -1,0 +1,20 @@
+<div>
+ User Component 
+</div>
+<app-user-list 
+    [users]="users" 
+    (deleteEvent)="deleteEventHandler($event)" 
+    (showEditEvent)="showEditHandler($event)" ></app-user-list>
+<app-user-new  
+    *ngIf="showCreate" 
+    (userCreateEvent)="userCreateHandler($event)" 
+    (cancelCreateEvent)="cancelCreate($event)" ></app-user-new>
+<div *ngIf="!showCreate">
+    <button (click)="showCreateHandler($event)">Create New User</button>
+</div>
+{{showEdit}}
+<app-user-edit 
+    *ngIf="showEdit" 
+    [userToEdit]="userToEdit" 
+    (saveEditEvent)="saveEditHandler($event)" 
+    (cancelEditEvent)="cancelEdit($event)"></app-user-edit>

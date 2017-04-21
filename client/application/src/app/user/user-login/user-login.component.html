@@ -1,0 +1,8 @@
+<div>
+ <h5> Please enter your email address to login</h5>
+  <form (submit)="submitHandler(email)">
+    <input type="text" name="email" [(ngModel)]="email" placeholder="email address" />
+    <input type="submit" value="Login"/>
+
+  </form>
+</div>

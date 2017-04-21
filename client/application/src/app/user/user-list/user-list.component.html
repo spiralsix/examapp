@@ -1,0 +1,29 @@
+<div class="box">
+  <h5>User-List Component</h5>
+  <p>Search by Email:  <input type="text" [(ngModel)]="searchTerm" />
+   <table *ngIf="users" >
+    <tr>
+      <th>Email</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Birthday</th>
+      <th>Password</th>
+      <th>Actions</th>
+    </tr>
+
+    <tr *ngFor="let user of users | useremailfilterpipe:searchTerm">
+      <td>{{user.first_name}}</td>
+      <td>{{user.last_name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.birthday | date:shortDate}}</td>
+      <td>**********</td>
+      <td>
+        <button (click)="showEdit(user)" value="">Edit</button>
+        <button (click)="deleteUser(user)" value="">Delete</button>
+      </td>
+     
+    </tr>
+  </table>
+
+
+</div>

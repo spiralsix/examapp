@@ -1,0 +1,11 @@
+<div>
+  <h5>Create New User</h5>
+  <form (submit)="createUser()">
+    <label for="first_name" >First Name</label> <input name="first_name"  [(ngModel)]="newUser.first_name"  required type="text"><br>
+    <label for="last_name">Last Name</label>    <input name="last_name"   [(ngModel)]="newUser.last_name"   required type="text"><br>
+    <label for="email">Email</label>            <input name="email"       [(ngModel)]="newUser.email"       required type="email"><br>
+    <label for="birthday">Birthday: </label>    <input name="birthday"    [(ngModel)]="newUser.birthday"    required type="date"><br>
+    <button type="submit" >Create User</button> <button (click)="cancel();$event.preventDefault()" >Cancel</button>
+  </form>
+
+</div>

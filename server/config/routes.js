@@ -1,6 +1,6 @@
 // here we load the Quote model that we created on the server.js page
 var mongoose = require('mongoose');
-var UserController = require('../../server/controllers/usercontroller.js');
+var UserController = require('../../server/controllers/UserController.js');
 var dBTest = mongoose.model('DBTest');
 module.exports = function(app) {
   
